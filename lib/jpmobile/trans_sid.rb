@@ -26,6 +26,9 @@ module Jpmobile
       when "ActionDispatch::Session::MemCacheStore"
         require 'jpmobile/session/mem_cache_store'
         ActionDispatch::Session::MemCacheStore.send :include, ParamsOverCookie
+      when "ActionDispatch::Session::DalliStore"
+        require 'jpmobile/session/dalli_store'
+        ActionDispatch::Session::DalliStore.send :include, ParamsOverCookie
       when "ActiveRecord::SessionStore"
         require 'jpmobile/session/active_record_store'
         ActionDispatch::Session::AbstractStore.send :include, ParamsOverCookie
